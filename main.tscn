@@ -1,0 +1,232 @@
+[gd_scene format=3 uid="uid://bw77yyonyt4m0"]
+
+[ext_resource type="Script" uid="uid://dqw55sn1pvnvu" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bi7qft6kr1bgm" path="res://player.tscn" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://c22wmnrltmw6q" path="res://resource/UI/Grenade_UI_Under.png" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://bcl1be8q5h8ee" path="res://resource/UI/Grenade_UI.png" id="3_h2yge"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font_size = 100
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_button"]
+font_size = 36
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gameover"]
+font_size = 80
+outline_size = 10
+outline_color = Color(0.8, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h2yge"]
+font_size = 40
+outline_size = 7
+outline_color = Color(0.31764707, 0.23137255, 1, 1)
+
+[node name="Main" type="Node" unique_id=2089363364]
+script = ExtResource("1_0xm2m")
+
+[node name="Player" parent="." unique_id=1704568131 instance=ExtResource("2_h2yge")]
+max_grenades = 4
+grenade_regen_time = 12.0
+player_hp = 250
+
+[node name="StartPosition" type="Marker2D" parent="." unique_id=1371609703]
+position = Vector2(239, 213)
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1822143828]
+position_smoothing_enabled = true
+
+[node name="TitleScreen" type="CanvasLayer" parent="." unique_id=501234001]
+layer = 10
+
+[node name="Background" type="ColorRect" parent="TitleScreen" unique_id=501234002]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.1, 1)
+
+[node name="TitleLabel" type="Label" parent="TitleScreen" unique_id=501234003]
+self_modulate = Color(0.3, 0.7, 1, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MAGIC"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="TitleScreen" unique_id=501234008]
+self_modulate = Color(0.6, 0.8, 1, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 300.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "— M 浓度博弈射击 —"
+label_settings = SubResource("LabelSettings_button")
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="TitleScreen" unique_id=501234004]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 20.0
+offset_right = 100.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "开始游戏"
+
+[node name="QuitButton" type="Button" parent="TitleScreen" unique_id=501234005]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 100.0
+offset_right = 100.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "退出游戏"
+
+[node name="GameOverScreen" type="CanvasLayer" parent="." unique_id=501234006]
+layer = 10
+visible = false
+
+[node name="GameOverBG" type="ColorRect" parent="GameOverScreen" unique_id=501234007]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.02, 0.02, 0.9)
+
+[node name="GameOverLabel" type="Label" parent="GameOverScreen" unique_id=501234009]
+self_modulate = Color(1, 0.3, 0.3, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "游戏结束"
+label_settings = SubResource("LabelSettings_gameover")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="GameOverScreen" unique_id=501234010]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 20.0
+offset_right = 100.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "重新开始"
+
+[node name="QuitButton" type="Button" parent="GameOverScreen" unique_id=501234011]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 100.0
+offset_right = 100.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "退出游戏"
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=973216707]
+layer = 0
+visible = false
+
+[node name="HPBar" type="ProgressBar" parent="UILayer" unique_id=1940637956]
+self_modulate = Color(0.21960784, 1, 0.93333334, 1)
+offset_left = 94.0
+offset_top = 88.0
+offset_right = 558.0
+offset_bottom = 163.0
+pivot_offset = Vector2(-60, -60)
+
+[node name="GrenadePanel" type="Control" parent="UILayer" unique_id=1124460289]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 134.0
+offset_top = 253.0
+offset_right = 306.0
+offset_bottom = 403.0
+pivot_offset = Vector2(-60, -200)
+
+[node name="GrenadeUI" type="TextureProgressBar" parent="UILayer/GrenadePanel" unique_id=418101160]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -45.0
+offset_right = 46.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 3
+texture_under = ExtResource("3_1bvp3")
+texture_progress = ExtResource("3_h2yge")
+metadata/_edit_group_ = true
+
+[node name="GrenadeCount" type="Label" parent="UILayer/GrenadePanel" unique_id=1940993420]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 36.0
+offset_top = 35.0
+offset_right = 95.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_h2yge")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="TitleScreen/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="TitleScreen/QuitButton" to="." method="_on_title_quit_button_pressed"]
+[connection signal="pressed" from="GameOverScreen/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="GameOverScreen/QuitButton" to="." method="_on_gameover_quit_button_pressed"]

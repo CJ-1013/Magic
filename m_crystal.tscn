@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cv53rlg26gacw"]
+
+[ext_resource type="Script" uid="uid://dfe5ty3lx4bgs" path="res://m_crystal.gd" id="1_fvchw"]
+[ext_resource type="Texture2D" uid="uid://boryma3g46tf0" path="res://M_Crystal_anim/1.png" id="1_tuo0q"]
+[ext_resource type="Texture2D" uid="uid://db3k8i1ydsx2s" path="res://M_Crystal_anim/2.png" id="2_fvchw"]
+[ext_resource type="Texture2D" uid="uid://bj7tokks8osdc" path="res://M_Crystal_anim/3.png" id="3_hp0y3"]
+[ext_resource type="Texture2D" uid="uid://bpoeahq7kesls" path="res://M_Crystal_anim/4.png" id="4_7f06q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0kcs1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tuo0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fvchw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hp0y3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7f06q")
+}],
+"loop": true,
+"name": &"flowing",
+"speed": 5.0
+}]
+
+[node name="M_crystal" type="Node2D" unique_id=2144686315]
+script = ExtResource("1_fvchw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1711104645]
+sprite_frames = SubResource("SpriteFrames_0kcs1")
+animation = &"flowing"
+frame_progress = 0.24006562
+
+[node name="ProduceTimer" type="Timer" parent="." unique_id=1702398744]
+autostart = true

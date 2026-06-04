@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dyu0dordeewgn"]
+
+[ext_resource type="Script" uid="uid://c6xisxxbw04rk" path="res://boss_enemy.gd" id="1_boss"]
+[ext_resource type="Texture2D" uid="uid://dslh51o10bh72" path="res://Boss_anim/1.png" id="2_boss"]
+[ext_resource type="Texture2D" uid="uid://do1h07jim7a7f" path="res://Boss_anim/2.png" id="3_boss"]
+[ext_resource type="Texture2D" uid="uid://cdm8tqfkqcmf4" path="res://Boss_anim/3.png" id="4_boss"]
+[ext_resource type="Texture2D" uid="uid://dgkk7xn6gn11e" path="res://Boss_anim/4.png" id="5_boss"]
+[ext_resource type="Texture2D" uid="uid://7nkv5jw58sei" path="res://Boss_anim/5.png" id="6_boss"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_boss"]
+animations = [{
+"frames": [{
+"duration": 1.8,
+"texture": ExtResource("2_boss")
+}, {
+"duration": 1.8,
+"texture": ExtResource("3_boss")
+}, {
+"duration": 1.8,
+"texture": ExtResource("4_boss")
+}, {
+"duration": 1.8,
+"texture": ExtResource("5_boss")
+}, {
+"duration": 1.8,
+"texture": ExtResource("6_boss")
+}],
+"loop": true,
+"name": &"breathe",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("2_boss")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_boss")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_boss")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_boss")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_boss")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_boss_body"]
+radius = 65.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_boss_hitbox"]
+radius = 75.0
+
+[node name="BossEnemy" type="CharacterBody2D" unique_id=453638037 groups=["enemy"]]
+collision_layer = 2
+script = ExtResource("1_boss")
+speed = 200
+hp = 800
+shoot_cooldown = 0.8
+shoot_range = 500.0
+bullet_damage = 15
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1588546599]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_boss")
+animation = &"breathe"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1524558523]
+shape = SubResource("CircleShape2D_boss_body")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1543785172 groups=["enemy"]]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1635580814 groups=["enemy"]]
+shape = SubResource("CircleShape2D_boss_hitbox")

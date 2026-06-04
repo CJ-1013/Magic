@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dsm7o6e0pc2iy"]
+
+[ext_resource type="Script" uid="uid://b8s01fns1nyv6" path="res://m_grid_visuals.gd" id="1_e3o8l"]
+
+[node name="M_Grid_Visuals" type="Node2D" unique_id=103024133]
+script = ExtResource("1_e3o8l")
+initial_wave_speed = 200.0

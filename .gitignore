@@ -1,0 +1,22 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# 论文/文档文件
+*.docx
+*.pdf
+论文图表_Mermaid.md
+generate_paper.py
+insert_citations.py
+
+# 临时文件
+*.tmp
+*.log
+
+# 导出目录
+build/
+export/
+
+# 系统文件
+Thumbs.db
+.DS_Store

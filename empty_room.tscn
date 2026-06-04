@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ngyyse4bbgdo"]
+
+[ext_resource type="Script" uid="uid://cqlbadq8idxy0" path="res://rooms/room.gd" id="1_1j48i"]
+[ext_resource type="PackedScene" uid="uid://dsm7o6e0pc2iy" path="res://M_Grid_Visuals.tscn" id="1_h00nm"]
+[ext_resource type="PackedScene" uid="uid://dgjv264xlcgbi" path="res://Map.tscn" id="2_1j48i"]
+
+[node name="EmptyRoom" type="Node2D" unique_id=1871958166]
+z_index = -1
+script = ExtResource("1_1j48i")
+
+[node name="M_Grid_Visuals" parent="." unique_id=103024133 instance=ExtResource("1_h00nm")]
+grid_width = 42
+grid_height = 23
+start_position = Vector2(0, 0)
+
+[node name="Map" parent="." unique_id=848288509 instance=ExtResource("2_1j48i")]
+
+[node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1691968986]
+
+[node name="EnemySpawns" type="Node2D" parent="." unique_id=393129123]

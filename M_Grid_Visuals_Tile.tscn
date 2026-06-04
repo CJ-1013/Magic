@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dd6btk8es1dub"]
+
+[ext_resource type="Script" uid="uid://binp4e0fxptqk" path="res://m_grid_visuals_tile.gd" id="1_cb7xn"]
+
+[node name="M_Grid_Visuals" type="Node2D" unique_id=103024133]
+script = ExtResource("1_cb7xn")
+cell_size = Vector2(25, 25)
+flow_rate = 0.5
+max_distance = 23

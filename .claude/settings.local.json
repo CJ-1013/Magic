@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sed -i 's|get_node\\(\"/root/Main\"\\)\\\\.get_m_grid_visuals\\(\\)|get_parent\\(\\).get_m_grid_visuals\\(\\)|g' \"/c/Users/Administrato/Documents/Godot/magic/grenade.gd\")",
+      "Bash(sed -i 's|get_node\\(\"/root/Main\"\\)\\\\.get_m_grid_visuals\\(\\)|get_parent\\(\\).get_m_grid_visuals\\(\\)|g' \"/c/Users/Administrato/Documents/Godot/magic/simple_enemy.gd\")",
+      "Bash(python3 *)",
+      "Bash(python -c \"import PyPDF2; print\\('PyPDF2 ok'\\)\")",
+      "Bash(python -c \"import pdfplumber; print\\('pdfplumber ok'\\)\")",
+      "Bash(python -c \"import fitz; print\\('pymupdf ok'\\)\")",
+      "Bash(pip install *)"
+    ]
+  }
+}

@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://bai8mqh0q02in"]
+
+[ext_resource type="Script" uid="uid://bajaahqre5pj0" path="res://sharp_enemy.gd" id="1_sharp"]
+[ext_resource type="Texture2D" uid="uid://8mnyvnu02sog" path="res://SharpEnemy_anim/1.png" id="2_sharp"]
+[ext_resource type="Texture2D" uid="uid://bn2d81ri8u6f0" path="res://SharpEnemy_anim/2.png" id="3_sharp"]
+[ext_resource type="Texture2D" uid="uid://opx58v15mdb" path="res://SharpEnemy_anim/3.png" id="4_sharp"]
+[ext_resource type="Texture2D" uid="uid://c60cxseuvul4d" path="res://SharpEnemy_anim/4.png" id="5_sharp"]
+[ext_resource type="Texture2D" uid="uid://mbxw0c3046sn" path="res://SharpEnemy_anim/5.png" id="6_sharp"]
+[ext_resource type="Texture2D" uid="uid://cd1u5sjiuuhu7" path="res://SharpEnemy_anim/6.png" id="7_sharp"]
+[ext_resource type="Texture2D" uid="uid://d0qk7djvsxy4w" path="res://SharpEnemy_anim/7.png" id="8_sharp"]
+[ext_resource type="Texture2D" uid="uid://c7bxeubxev1xc" path="res://SharpEnemy_anim/8.png" id="9_sharp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sharp"]
+animations = [{
+"frames": [{
+"duration": 3.5,
+"texture": ExtResource("2_sharp")
+}, {
+"duration": 3.5,
+"texture": ExtResource("3_sharp")
+}, {
+"duration": 3.5,
+"texture": ExtResource("4_sharp")
+}, {
+"duration": 3.5,
+"texture": ExtResource("5_sharp")
+}, {
+"duration": 3.5,
+"texture": ExtResource("6_sharp")
+}, {
+"duration": 3.5,
+"texture": ExtResource("7_sharp")
+}, {
+"duration": 3.5,
+"texture": ExtResource("8_sharp")
+}, {
+"duration": 3.5,
+"texture": ExtResource("9_sharp")
+}],
+"loop": true,
+"name": &"breathe",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.7,
+"texture": ExtResource("2_sharp")
+}, {
+"duration": 0.7,
+"texture": ExtResource("3_sharp")
+}, {
+"duration": 0.7,
+"texture": ExtResource("4_sharp")
+}, {
+"duration": 0.7,
+"texture": ExtResource("5_sharp")
+}, {
+"duration": 0.7,
+"texture": ExtResource("6_sharp")
+}, {
+"duration": 0.7,
+"texture": ExtResource("7_sharp")
+}, {
+"duration": 0.7,
+"texture": ExtResource("8_sharp")
+}, {
+"duration": 0.7,
+"texture": ExtResource("9_sharp")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sharp_body"]
+radius = 42.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sharp_hitbox"]
+radius = 50.0
+
+[node name="SharpEnemy" type="CharacterBody2D" unique_id=353638037 groups=["enemy"]]
+collision_layer = 2
+script = ExtResource("1_sharp")
+speed = 180
+hp = 80
+shoot_cooldown = 1.0
+bullet_damage = 15
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1588546598]
+sprite_frames = SubResource("SpriteFrames_sharp")
+animation = &"breathe"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1524558522]
+shape = SubResource("CircleShape2D_sharp_body")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1543785171 groups=["enemy"]]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1635580813 groups=["enemy"]]
+shape = SubResource("CircleShape2D_sharp_hitbox")
